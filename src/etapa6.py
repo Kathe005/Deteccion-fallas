@@ -74,6 +74,5 @@ def actualizar(frame):
                  % (conteo["aprobadas"], conteo["rechazadas"]))
 
 anim = FuncAnimation(fig, actualizar, frames=40, interval=1000, repeat=False)
-os.makedirs("resultados", exist_ok=True)
-plt.savefig("resultados/etapa2_diferencia.png", dpi=150)
+
 plt.show()
