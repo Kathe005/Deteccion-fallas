@@ -32,7 +32,7 @@ def sigmoide(z):
 
 # Entrenamiento: una neurona, descenso de gradiente
 w, b = 0.0, 0.0
-lr = 0.1
+lr = 0.01
 perdidas = []
 for epoca in range(300):
     p = sigmoide(w * Xtr + b)
