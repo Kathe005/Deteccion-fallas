@@ -1,6 +1,7 @@
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 from nucleo import *
 
 np.random.seed(42)
@@ -48,4 +49,6 @@ plt.grid(alpha=0.3)
 
 os.makedirs("resultados", exist_ok=True)
 plt.savefig("resultados/convergencia_lr.png", dpi=150)
+os.makedirs("resultados", exist_ok=True)
+plt.savefig("resultados/etapa2_diferencia.png", dpi=150)
 plt.show()

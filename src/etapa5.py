@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 from nucleo import *
 
 np.random.seed(42)
@@ -53,4 +54,6 @@ plt.plot(perdidas)
 plt.xlabel("Epoca")
 plt.ylabel("Perdida")
 plt.title("Convergencia del perceptron")
+os.makedirs("resultados", exist_ok=True)
+plt.savefig("resultados/etapa2_diferencia.png", dpi=150)
 plt.show()

@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
+import os
 def crear_patron(tam=64):
     """Azulejo ideal: fondo claro, borde oscuro y un cuadro central."""
     img = np.full((tam, tam), 200.0)
@@ -44,4 +44,6 @@ ejes[2].imshow(mala, cmap="gray", vmin=0, vmax=255)
 ejes[2].set_title("Pieza mala")
 ejes[3].imshow(np.abs(dif_mala), cmap="hot")
 ejes[3].set_title("Diferencia (mala)")
+os.makedirs("resultados", exist_ok=True)
+plt.savefig("resultados/etapa2_diferencia.png", dpi=150)
 plt.show()

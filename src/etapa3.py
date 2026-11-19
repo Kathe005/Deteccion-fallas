@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 
 def crear_patron(tam=64):
     img = np.full((tam, tam), 200.0)
@@ -45,4 +46,6 @@ ejes[0].set_title("Pieza mala")
 im = ejes[1].imshow(mapa, cmap="hot")
 ejes[1].set_title("MSE por bloque")
 plt.colorbar(im, ax=ejes[1])
+os.makedirs("resultados", exist_ok=True)
+plt.savefig("resultados/etapa2_diferencia.png", dpi=150)
 plt.show()

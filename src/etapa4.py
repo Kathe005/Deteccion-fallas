@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 
 np.random.seed(42)
 
@@ -72,4 +73,6 @@ plt.axvline(mejor_umbral, color="red", linestyle="--", label="Umbral")
 plt.xlabel("MSE maximo por bloque")
 plt.ylabel("Cantidad de piezas")
 plt.legend()
+os.makedirs("resultados", exist_ok=True)
+plt.savefig("resultados/etapa2_diferencia.png", dpi=150)
 plt.show()
