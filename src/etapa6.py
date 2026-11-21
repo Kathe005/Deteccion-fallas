@@ -75,14 +75,8 @@ def actualizar(frame):
 
 os.makedirs("resultados", exist_ok=True)
 
-anim = FuncAnimation(
-    fig, 
-    actualizar, 
-    frames=40, 
-    interval=1000, 
-    repeat=False
-    )
-
+anim = FuncAnimation(fig, actualizar, frames=40, interval=1000, repeat=False,
+                     init_func=lambda: None)
 plt.show()
 
 fig.savefig("resultados/etapa6_cinta.png", dpi=150)
