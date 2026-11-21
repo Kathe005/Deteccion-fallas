@@ -41,6 +41,20 @@ for nombre, mx, md, img, mapa in resultados:
     print("%-12s %18.3f %12.3f" % (nombre, mx, md))
 
 # Figura: fila 1 = fotos, fila 2 = mapa de error por bloques
+# Umbral: punto medio entre la peor "buena" y la mejor "mala"
+buenas = [mx for nombre, mx, md, img, mapa in resultados if nombre.startswith("buena")]
+malas = [mx for nombre, mx, md, img, mapa in resultados if nombre.startswith("mala")]
+print("")
+if max(buenas) >= min(malas):
+    print("Aviso: buenas y malas se solapan, no hay umbral que las separe.")
+    umbral = None
+else:
+    umbral = (max(buenas) + min(malas)) / 2
+    print("Umbral = %.2f (punto medio entre %.2f y %.2f)" % (umbral, max(buenas), min(malas)))
+    for nombre, mx, md, img, mapa in resultados:
+        veredicto = "RECHAZADO" if mx >= umbral else "APROBADO"
+        print("%-12s %s" % (nombre, veredicto))
+        
 vmax = max(r[1] for r in resultados)
 n = len(resultados)
 fig, ejes = plt.subplots(2, n + 1, figsize=(3 * (n + 1), 6))
