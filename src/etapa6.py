@@ -73,6 +73,16 @@ def actualizar(frame):
     fig.suptitle("Aprobadas: %d    Rechazadas: %d"
                  % (conteo["aprobadas"], conteo["rechazadas"]))
 
-anim = FuncAnimation(fig, actualizar, frames=40, interval=1000, repeat=False)
+os.makedirs("resultados", exist_ok=True)
+
+anim = FuncAnimation(
+    fig, 
+    actualizar, 
+    frames=40, 
+    interval=1000, 
+    repeat=False
+    )
 
 plt.show()
+
+fig.savefig("resultados/etapa6_cinta.png", dpi=150)
